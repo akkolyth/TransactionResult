@@ -27,6 +27,7 @@ public class Tags
     public Tags (byte[] Frame)
     {
         String stringFrame = new String(Frame);
+
         int index = 12;
         DLVField field;
         do
@@ -45,7 +46,7 @@ public class Tags
        DLVField field = new DLVField();
        set_shortTags();
 
-       if (strFrame.charAt(index) != (byte)3) {return null;}
+       if (strFrame.charAt(index) == (byte)3) { return null;}
 
        String tag = strFrame.substring(index,index+2);
        int lenpos = index + 2;
