@@ -1,3 +1,9 @@
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.lang.reflect.Field;
+import java.util.HashSet;
+import java.util.Set;
+
 public class Test
 {
 
@@ -38,7 +44,21 @@ public class Test
 
         TransactionResult TrRe = new TransactionResult(Fr54,Fr51);
         System.out.println(TrRe.toString());
+
     }
+
+    private void PrintConfigFile (TransactionResult TrRe) throws FileNotFoundException, IllegalAccessException
+    {
+        Field[] fields = TrRe.getClass().getDeclaredFields();
+        PrintWriter printWriter = new PrintWriter("PrintData.txt");
+        for ( Field field : fields  )
+        {
+            printWriter.println("<" + field.getName() + ">");
+            printWriter.println(field.get(TrRe));
+        }
+        printWriter.close();
+    }
+
 
 
 }

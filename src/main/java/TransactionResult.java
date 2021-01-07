@@ -178,7 +178,8 @@ public class TransactionResult
         return tag_DF56;
     }
 
-    public String toString() {
+    public String toString()
+    {
         StringBuilder result = new StringBuilder();
         String newLine = System.getProperty("line.separator");
 
