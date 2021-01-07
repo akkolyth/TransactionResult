@@ -47,10 +47,12 @@ public class Test
 
     }
 
-    private void PrintConfigFile (TransactionResult TrRe) throws FileNotFoundException, IllegalAccessException
+    private void PrintConfigFile (String trType, TransactionResult TrRe) throws FileNotFoundException, IllegalAccessException
     {
         Field[] fields = TrRe.getClass().getDeclaredFields();
         PrintWriter printWriter = new PrintWriter("PrintData.txt");
+        printWriter.println("<DOCT>");
+        printWriter.println(trType);
         for ( Field field : fields  )
         {
             printWriter.println("<" + field.getName() + ">");
